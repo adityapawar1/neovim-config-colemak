@@ -33,6 +33,7 @@ local servers = {
   "prismals",
 	"rust_analyzer",
 	"tailwindcss",
+  "jdtls"
 }
 -- local servers = { "html", "cssls", "bashls", "emmet_ls", "tsserver", "pyright" }
 

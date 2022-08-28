@@ -4,6 +4,140 @@ local M = {}
 -- v: Visual
 -- x: Visual Line
 
+local config = require("core.utils").load_config()
+
+local map = vim.api.nvim_set_keymap
+local opts = {noremap = true, silent = true}
+local xpr = {noremap = true, expr = true}
+
+--[[
+M.colemak = {
+  n = {
+   ["n"] = { "j", "Cursor down" }
+   ["e"] = { "k", "Cursor up" }
+   ["i"] = { "l", "Cursor right" }
+   ["u"] = { "i", "Insert mode" },
+   ["U"] = { "I", "" },
+   ["l"] = { "u", "" },
+   ["gl"] = { "u", "" },
+   ["<C-W>h"] = { "<C-W>h", "" },
+   ["<C-W>n"] = { "<C-W>j", "" },
+   ["<C-W>e"] = { "<C-W>k", "" },
+   ["<C-W>i"] = { "<C-W>k", "" },
+   ["<leader>ss"] = { ":sp<space>", "" },
+   ["<leader>vs"] = { ":vsp<space>", "" },
+   ["<C-t>"] = { "<Esc>:tabnew<CR>", "" }, 
+   ["<S-T>"] = { "<Esc><C-w>T", "" }
+   ["te"] = { ":tabnext<CR>", "" },
+   ["tn"] = { ":tabprev<CR>", "" },
+   ["th"] = { ":tabfirst<CR>", "" },
+   ["ti"] = { ":tablast<CR>", "" },
+   ["<leader><space>"] = { ":set hlsearch!<CR>", "" },
+   ["<leader>sl"] = { ":set wrap linebreak<CR>", "" },
+   ["gV"] = { "`[v]`", "" },
+   ["<leader>spl"] = { ":set spell spelllang=en_us<CR>", "" },
+   ["<leader>nspl"] = { ":set nospell<CR>", "" },
+   ["<leader>S"] = { ":FixWhitespace<CR>", "" },
+  }
+  
+  x = {
+   ["n"] = { "j", "" },
+   ["e"] = { "k", "" },
+   ["i"] = { "l", "" },
+   ["u"] = { "i", "" },
+   ["U"] = { "I", "" },
+   ["l"] = { ":<C-U>undo<CR>", "" },
+   ["gl"] = { ":<C-U>undo<CR>", ""},
+   ["<C-W>n"] = { "<C-W>j", "" },
+   ["<C-W>h"] = { "<C-W>h", "" },
+   ["<C-W>i"] = { "<C-W>k", "" },
+   ["<C-W>e"] = { "<C-W>k", "" },
+  }
+
+  o = {
+   ["n"] = { "j", "" },
+   ["e"] = { "k", "" },
+   ["i"] = { "l", "" },
+   ["u"] = { "i", "" },
+   ["U"] = { "I", "" },
+  }
+}
+]]--
+
+local config = require("core.utils").load_config()
+
+local map = vim.api.nvim_set_keymap
+local opts = {noremap = true, silent = true}
+local xpr = {noremap = true, expr = true}
+
+-- Colemak Keybindings {{{
+   ----------------------
+   map('n', 'n', 'j', opts)
+   map('x', 'n', 'j', opts)
+   map('o', 'n', 'j', opts)
+   map('n', 'e', 'k', opts)
+   map('x', 'e', 'k', opts)
+   map('o', 'e', 'k', opts)
+   map('n', 'i', 'l', opts)
+   map('x', 'i', 'l', opts)
+   map('o', 'i', 'l', opts)
+
+  -- Colemak Insert
+   map('n', 'u', 'i', opts)
+   map('n', 'U', 'I', opts)
+   map('x', 'u', 'i', opts)
+   map('x', 'U', 'I', opts)
+   map('o', 'u', 'i', opts)
+   map('o', 'U', 'I', opts)
+
+   -- Undo/redo
+   map('n', 'l', 'u', opts)
+   map('x', 'l', ':<C-U>undo<CR>', opts)
+   map('n', 'gl', 'u', opts)
+   map('x', 'gl', ':<C-U>undo<CR>', opts)
+
+   -- Colemak Windows
+   map('n', '<C-W>h', '<C-W>h', opts)
+   map('x', '<C-W>h', '<C-W>h', opts)
+   map('n', '<C-W>n', '<C-W>j', opts)
+   map('x', '<C-W>n', '<C-W>j', opts)
+   map('n', '<C-W>e', '<C-W>k', opts)
+   map('x', '<C-W>e', '<C-W>k', opts)
+   map('n', '<C-W>i', '<C-W>k', opts)
+   map('x', '<C-W>i', '<C-W>k', opts)
+
+   -- window & tab controls
+   map('n', '<leader>ss', ':sp<space>', opts)
+   map('n', '<leader>vs', ':vsp<space>', opts)
+   -- tab controls -- ctrl-t makes a new tab
+   map('n', '<C-t>', '<Esc>:tabnew<CR>', opts) -- Check collision!
+   -- shift T turn a split window into a tab
+   map('n', '<S-T>', '<Esc><C-w>T', opts) -- Check collision!
+   map('n', 'te', ':tabnext<CR>', opts)
+   map('n', 'tn', ':tabprev<CR>', opts)
+   map('n', 'th', ':tabfirst<CR>', opts)
+   map('n', 'ti', ':tablast<CR>', opts)
+
+-- }}}
+
+-- {{{ Improvments
+   map('n', '<leader><space>', ':set hlsearch!<CR>', opts)
+   map('n', '<leader>sl', ':set wrap linebreak<CR>', opts)
+
+   -- highlight last inserted text
+   map('n', 'gV', '`[v]`', opts)
+
+   -- turn on spell checker - ]s and [s to move, z= for suggestions
+   map('n', '<leader>spl', ':set spell spelllang=en_us<CR>', opts)
+   map('n', '<leader>nspl', ':set nospell<CR>', opts)
+   map('n', '<leader>S', ':FixWhitespace<CR>', opts)
+
+-- }}}
+
+
+
+
+
 M.general = {
    v = {
       -- Move text
