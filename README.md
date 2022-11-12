@@ -5,14 +5,16 @@ Edited to work with the [Colemak](https://colemak.com/) keyboard layout.
 
 Changes:
 Basic Movement
-- h -> h (no change)
-- j -> n
-- k -> e
-- l -> i
+- `h` -> `h` (no change)
+- `j` -> `n`
+- `k` -> `e`
+- `l` -> `i`
+
 Insert
-- i -> u
+- `i` -> `u`
+
 Undo
-- u -> l
+- `u` -> `l`
 
 Everything else is the same as the vim bindings
 
