@@ -30,10 +30,14 @@ local servers = {
 	"emmet_ls",
 	"tsserver",
 	"pyright",
+  -- "autopep8",
+  -- "elixir-ls",
+  -- "prettier",
   "prismals",
 	"rust_analyzer",
 	"tailwindcss",
-  "jdtls"
+  "jdtls",
+  -- "r-languageserver"
 }
 -- local servers = { "html", "cssls", "bashls", "emmet_ls", "tsserver", "pyright" }
 
