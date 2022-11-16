@@ -12,7 +12,7 @@ M.treesitter = {
 		"heex",
 		"html",
 		"http",
-    "java",
+		"java",
 		"javascript",
 		"json",
 		"latex",
@@ -206,11 +206,14 @@ M.mason = {
 	ensure_installed = {
 		-- Python
 		"pyright",
+    "debugpy",
 		"isort",
 		"flake8",
 		"black",
 		-- webdev
 		"typescript-language-server",
+		"emmet-ls",
+		"tailwindcss-language-server",
 		"prettier",
 		"emmet-ls",
 		-- Other
@@ -220,4 +223,5 @@ M.mason = {
 		"rust-analyze",
 	},
 }
+
 return M
